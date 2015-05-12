@@ -42,17 +42,23 @@ class TwitterAPI {
         }
     }
     
-    class func getNearTimeline(tweets: [TWTRTweet]->(), error: (NSError) -> ()) {
+    class func getNearTimeline(tweets: [TWTRTweet]->(), error: (NSError) -> (), lat: Float, lon: Float) {
         let api = TwitterAPI()
         var clientError: NSError?
         let path = "/search/tweets.json"
         let endpoint = api.baseURL + api.version + path
-        let params = ["id": "20"]
-        let request = Twitter.sharedInstance().APIClient.URLRequestWithMethod("GET", URL: endpoint, parameters: nil, error: &clientError)
+        let params = ["geocode": "\(lat),\(lon),25km"]
+
+//        let params = ["q": "test",
+//            "geocode": "\(lat),\(lon),25km"]
+//        let params = ["q": "test"]
+
+        let request = Twitter.sharedInstance().APIClient.URLRequestWithMethod("GET", URL: endpoint, parameters: params, error: &clientError)
         
         if request != nil {
             Twitter.sharedInstance().APIClient.sendTwitterRequest(request, completion: {
                 response, data, err in
+                println("completion \(response)")
                 if err == nil {
                     var jsonError: NSError?
                     let json: AnyObject? =  NSJSONSerialization.JSONObjectWithData(data,
