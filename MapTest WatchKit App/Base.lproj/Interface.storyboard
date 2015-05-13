@@ -10,7 +10,7 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="MapTest_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <map width="136" height="107" alignment="left" id="c8k-Ia-R71"/>
+                        <map width="136" height="148" alignment="left" id="c8k-Ia-R71"/>
                         <button width="1" alignment="left" title="Button" id="Tsk-Io-6nl">
                             <connections>
                                 <action selector="pushButton" destination="AgC-eL-Hgc" id="FWE-5j-wK4"/>
@@ -19,10 +19,18 @@
                     </items>
                     <connections>
                         <outlet property="mapView" destination="c8k-Ia-R71" id="Ajc-U0-lm6"/>
+                        <segue destination="MQc-F5-FSS" kind="relationship" relationship="nextPage" id="Qrp-4U-pxX"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="235" y="326"/>
+            <point key="canvasLocation" x="235" y="345.25"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="zi5-bn-u7J">
+            <objects>
+                <controller id="MQc-F5-FSS"/>
+            </objects>
+            <point key="canvasLocation" x="461" y="346"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="BOz-TT-tkC">

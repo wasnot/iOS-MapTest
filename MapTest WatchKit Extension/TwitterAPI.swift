@@ -53,6 +53,10 @@ public class TwitterAPI {
         //            "geocode": "\(lat),\(lon),25km"]
         //        let params = ["q": "test"]
         
+        println("test \(Twitter.sharedInstance().APIClient)")
+        if(true) {
+            return
+        }
         let request = Twitter.sharedInstance().APIClient.URLRequestWithMethod("GET", URL: endpoint, parameters: params, error: &clientError)
         
         if request != nil {

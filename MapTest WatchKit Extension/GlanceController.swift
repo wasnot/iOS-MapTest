@@ -8,6 +8,7 @@
 
 import WatchKit
 import Foundation
+import TwitterKit
 
 
 class GlanceController: WKInterfaceController, CLLocationManagerDelegate {
@@ -17,6 +18,7 @@ class GlanceController: WKInterfaceController, CLLocationManagerDelegate {
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
+        println("awakeWithContext")
         
         // Configure interface objects here.
         
@@ -40,37 +42,41 @@ class GlanceController: WKInterfaceController, CLLocationManagerDelegate {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        
-//        TwitterAPI.getNearTimeline({
-//            twttrs in
-//            println("count \(twttrs.count)")
-//            for tweet :NSDictionary in twttrs {
-//                var t:TWTRTweet = TWTRTweet(JSONDictionary: tweet as [NSObject : AnyObject])
-//                var coordinates = tweet.valueForKey("coordinates")
-//                //                println("count \(t.retweetCount) \(coordinates)")
-//                if let a = coordinates as? NSDictionary {
-//                    var b = a.valueForKey("coordinates")
-//                    if let bb = b as? NSArray {
-//                        var cc = CLLocationCoordinate2DMake(bb[1] as! CLLocationDegrees, bb[0] as! CLLocationDegrees)
-//                        println("coordinates: \(cc.latitude) \(cc.longitude)")
-//                        self.setMapAnnotation(cc, tweet: t)
-//                    }
-//                }
-//                //                self.tweets.append(tweet)
-//            }
-//            },
-//            error: {
-//                error in
-//                println("error:\(error.localizedFailureReason)")
-//            },
-//            lat: Float(mapView.region.center.latitude),
-//            lon: Float(mapView.region.center.longitude),
-//            within: Int(mapView.region.span.longitudeDelta * 30))
+        println("willActivate")
     }
 
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
+        println("didDeactive")
+    }
+    
+    func setAnnotation(lat: CLLocationDegrees, lon: CLLocationDegrees){
+        TwitterAPI.getNearTimeline({
+            twttrs in
+            println("count \(twttrs.count)")
+            for tweet :NSDictionary in twttrs {
+                var t:TWTRTweet = TWTRTweet(JSONDictionary: tweet as [NSObject : AnyObject])
+                var coordinates = tweet.valueForKey("coordinates")
+                //                println("count \(t.retweetCount) \(coordinates)")
+                if let a = coordinates as? NSDictionary {
+                    var b = a.valueForKey("coordinates")
+                    if let bb = b as? NSArray {
+                        var cc = CLLocationCoordinate2DMake(bb[1] as! CLLocationDegrees, bb[0] as! CLLocationDegrees)
+                        println("coordinates: \(cc.latitude) \(cc.longitude)")
+                        self.setMapAnnotation(cc)
+                    }
+                }
+                //                self.tweets.append(tweet)
+            }
+            },
+            error: {
+                error in
+                println("error:\(error.localizedFailureReason)")
+            },
+            lat: Float(lat),
+            lon: Float(lon),
+            within: 25)
     }
     
     func setMap(lat: CLLocationDegrees, lon: CLLocationDegrees){
@@ -87,6 +93,14 @@ class GlanceController: WKInterfaceController, CLLocationManagerDelegate {
         self.mapView.setRegion(myRegion)
     }
     
+    func setMapAnnotation(userLocation: CLLocationCoordinate2D){
+//        var userLocAnnotation: MKPointAnnotation = MKPointAnnotation()
+//        userLocAnnotation.coordinate = userLocation
+//        userLocAnnotation.title = tweet.text
+        self.mapView.addAnnotation(userLocation, withPinColor: WKInterfaceMapPinColor.Red)
+        println("setMapAnnotation:\(userLocation.latitude),\(userLocation.longitude)")
+    }
+    
     // MARK: - CLLocationManagerDelegete
     
     // 位置情報取得に成功したときに呼び出されるデリゲート.
@@ -97,6 +111,8 @@ class GlanceController: WKInterfaceController, CLLocationManagerDelegate {
         //        setMapAnnotation(userLocation)
         
         setMap(userLocation.latitude, lon: userLocation.longitude)
+        setAnnotation(userLocation.latitude, lon: userLocation.longitude)
+        setMapAnnotation(userLocation)
     }
     
     // 位置情報取得に失敗した時に呼び出されるデリゲート.

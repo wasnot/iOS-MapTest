@@ -8,7 +8,8 @@
 
 import WatchKit
 import Foundation
-
+import TwitterKit
+import Fabric
 
 class InterfaceController: WKInterfaceController, CLLocationManagerDelegate {
 
@@ -17,6 +18,7 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate {
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
+        println("awakeWithContext")
         
         // Configure interface objects here.
         
@@ -40,14 +42,66 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        println("willActivate")
     }
 
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
+        println("didDeactivate")
     }
 
     @IBAction func pushButton() {
+        println("pushButton")
+        setMapAnnotation(CLLocationCoordinate2DMake(35.665213, 139.730011), color: 1)
+        setMapAnnotation(CLLocationCoordinate2DMake(35.658987, 139.702776), color: 1)
+//        Fabric.with([Twitter()])
+//        Twitter.sharedInstance().logInGuestWithCompletion {
+//            (session, error) -> Void in
+//            if (session != nil) {
+//                println("signed in as \(session.accessToken)");
+//            } else {
+//                println("error: \(error.localizedDescription)");
+//            }
+//        }
+//        Twitter.sharedInstance().logInWithCompletion {
+//            (session, error) -> Void in
+//            if (session != nil) {
+//                println("signed in as \(session.userName)");
+//            } else {
+//                println("error: \(error.localizedDescription)");
+//            }
+//        }
+    }
+    
+    
+    func setAnnotation(lat: CLLocationDegrees, lon: CLLocationDegrees){
+        println("setAnnotation")
+        TwitterAPI.getNearTimeline({
+            twttrs in
+            println("count \(twttrs.count)")
+            for tweet :NSDictionary in twttrs {
+//                var t:TWTRTweet = TWTRTweet(JSONDictionary: tweet as [NSObject : AnyObject])
+                var coordinates = tweet.valueForKey("coordinates")
+                //                println("count \(t.retweetCount) \(coordinates)")
+                if let a = coordinates as? NSDictionary {
+                    var b = a.valueForKey("coordinates")
+                    if let bb = b as? NSArray {
+                        var cc = CLLocationCoordinate2DMake(bb[1] as! CLLocationDegrees, bb[0] as! CLLocationDegrees)
+                        println("coordinates: \(cc.latitude) \(cc.longitude)")
+                        self.setMapAnnotation(cc, color: 1)
+                    }
+                }
+                //                self.tweets.append(tweet)
+            }
+            },
+            error: {
+                error in
+                println("error:\(error.localizedFailureReason)")
+            },
+            lat: Float(lat),
+            lon: Float(lon),
+            within: 25)
     }
     
     func setMap(lat: CLLocationDegrees, lon: CLLocationDegrees){
@@ -64,6 +118,20 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate {
         self.mapView.setRegion(myRegion)
     }
     
+    func setMapAnnotation(userLocation: CLLocationCoordinate2D, color: Int){
+        //        var userLocAnnotation: MKPointAnnotation = MKPointAnnotation()
+        //        userLocAnnotation.coordinate = userLocation
+        //        userLocAnnotation.title = tweet.text
+        let pinColor: WKInterfaceMapPinColor
+        if(color == 0){
+            pinColor = WKInterfaceMapPinColor.Purple
+        }else{
+            pinColor = WKInterfaceMapPinColor.Red
+        }
+        self.mapView.addAnnotation(userLocation, withPinColor: pinColor)
+        println("setMapAnnotation:\(userLocation.latitude),\(userLocation.longitude)")
+    }
+    
     // MARK: - CLLocationManagerDelegete
     
     // 位置情報取得に成功したときに呼び出されるデリゲート.
@@ -74,6 +142,7 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate {
         //        setMapAnnotation(userLocation)
         
         setMap(userLocation.latitude, lon: userLocation.longitude)
+        setMapAnnotation(userLocation, color: 0)
     }
     
     // 位置情報取得に失敗した時に呼び出されるデリゲート.
