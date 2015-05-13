@@ -93,12 +93,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //        let myLon: CLLocationDegrees = 139.930531
         let myCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat, lon) as CLLocationCoordinate2D
         // 縮尺.
-        let myLatDist : CLLocationDistance = 100
-        let myLonDist : CLLocationDistance = 100
+        let myLatDist : CLLocationDistance = 25000
+        let myLonDist : CLLocationDistance = 25000
         // Regionを作成.
         let myRegion: MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(myCoordinate, myLatDist, myLonDist);
         // MapViewに反映.
         self.mapView.setRegion(myRegion, animated: true)
+    }
+    
+    func setMapAnnotation(userLocation: CLLocationCoordinate2D){
+        var userLocAnnotation: MKPointAnnotation = MKPointAnnotation()
+        userLocAnnotation.coordinate = userLocation
+        userLocAnnotation.title = "現在地"
+        self.mapView.addAnnotation(userLocAnnotation)
+        println("setMapAnnotation:\(userLocation.latitude),\(userLocation.longitude)")
     }
     
     @IBAction func pushButton(sender: UIButton) {
@@ -107,13 +115,28 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         TwitterAPI.getNearTimeline({
             twttrs in
             println("count \(twttrs.count)")
-            for tweet in twttrs {
+            for tweet :NSDictionary in twttrs {
+                var t:TWTRTweet = TWTRTweet(JSONDictionary: tweet as [NSObject : AnyObject])
+                var coordinates = tweet.valueForKey("coordinates")
+//                println("count \(t.retweetCount) \(coordinates)")
+                if let a = coordinates as? NSDictionary {
+                    var b = a.valueForKey("coordinates")
+                    if let bb = b as? NSArray {
+                        var cc = CLLocationCoordinate2DMake(bb[1] as! CLLocationDegrees, bb[0] as! CLLocationDegrees)
+                        println("coordinates: \(cc.latitude) \(cc.longitude)")
+                        self.setMapAnnotation(cc)
+                    }
+                }
 //                self.tweets.append(tweet)
             }
-            }, error: {
+            },
+            error: {
                 error in
                 println("error:\(error.localizedFailureReason)")
-            }, lat: Float(mapView.region.center.latitude), lon: Float(mapView.region.center.longitude))
+            },
+            lat: Float(mapView.region.center.latitude),
+            lon: Float(mapView.region.center.longitude),
+            within: 25)
     }
 
     
@@ -149,12 +172,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func locationManager(manager: CLLocationManager!,didUpdateLocations locations: [AnyObject]!){
         
         var userLocation = CLLocationCoordinate2DMake(manager.location.coordinate.latitude, manager.location.coordinate.longitude)
-        
-        var userLocAnnotation: MKPointAnnotation = MKPointAnnotation()
-        userLocAnnotation.coordinate = userLocation
-        userLocAnnotation.title = "現在地"
-        mapView.addAnnotation(userLocAnnotation)
         println("locationManager:\(userLocation.latitude),\(userLocation.longitude)")
+//        setMapAnnotation(userLocation)
         
         setMap(userLocation.latitude, lon: userLocation.longitude)
     }

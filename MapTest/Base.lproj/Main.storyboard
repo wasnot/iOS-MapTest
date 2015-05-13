@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -36,11 +37,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NtG-vg-FpY">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NtG-vg-FpY">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCY-60-S9c">
-                                <rect key="frame" x="16" y="562" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCY-60-S9c">
+                                <rect key="frame" x="16" y="550" width="46" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -50,6 +51,14 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="NtG-vg-FpY" secondAttribute="trailing" constant="-16" id="1JP-rP-EPc"/>
+                            <constraint firstItem="NtG-vg-FpY" firstAttribute="top" secondItem="6ju-zp-fkv" secondAttribute="topMargin" id="Aqf-gl-twV"/>
+                            <constraint firstItem="04D-Y1-R2p" firstAttribute="top" secondItem="NtG-vg-FpY" secondAttribute="bottom" id="jA1-82-hjV"/>
+                            <constraint firstItem="NtG-vg-FpY" firstAttribute="leading" secondItem="6ju-zp-fkv" secondAttribute="leadingMargin" constant="-16" id="nva-5Y-X85"/>
+                            <constraint firstItem="YCY-60-S9c" firstAttribute="leading" secondItem="6ju-zp-fkv" secondAttribute="leadingMargin" id="pQb-jG-n4k"/>
+                            <constraint firstItem="04D-Y1-R2p" firstAttribute="top" secondItem="YCY-60-S9c" secondAttribute="bottom" constant="20" id="twH-Hb-pof"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="NtG-vg-FpY" id="X3Z-8L-sJ6"/>

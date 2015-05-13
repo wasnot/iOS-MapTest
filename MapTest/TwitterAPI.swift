@@ -42,12 +42,12 @@ class TwitterAPI {
         }
     }
     
-    class func getNearTimeline(tweets: [TWTRTweet]->(), error: (NSError) -> (), lat: Float, lon: Float) {
+    class func getNearTimeline(tweets: [NSDictionary]->(), error: (NSError) -> (), lat: Float, lon: Float, within: Int) {
         let api = TwitterAPI()
         var clientError: NSError?
         let path = "/search/tweets.json"
         let endpoint = api.baseURL + api.version + path
-        let params = ["geocode": "\(lat),\(lon),25km"]
+        let params = ["geocode": "\(lat),\(lon),\(within)km"]
 
 //        let params = ["q": "test",
 //            "geocode": "\(lat),\(lon),25km"]
@@ -58,14 +58,26 @@ class TwitterAPI {
         if request != nil {
             Twitter.sharedInstance().APIClient.sendTwitterRequest(request, completion: {
                 response, data, err in
-                println("completion \(response)")
+                println("completion ")
                 if err == nil {
                     var jsonError: NSError?
                     let json: AnyObject? =  NSJSONSerialization.JSONObjectWithData(data,
                         options: nil,
                         error: &jsonError)
-                    if let jsonArray = json as? NSArray {
-                        tweets(TWTRTweet.tweetsWithJSONArray(jsonArray as [AnyObject]) as! [TWTRTweet])
+//                    println("completion \(json)")
+                    // Search APIは二階層
+                    if let top = json as? NSDictionary {
+//                        var list: [TWTRTweet] = []
+//                        if let statuses = top["statuses"] as? NSArray {
+//                            list = TWTRTweet.tweetsWithJSONArray(statuses as [AnyObject]) as! [TWTRTweet]
+//                        }
+                        var list: [NSDictionary] = []
+                        if let statuses = top["statuses"] as? NSArray {
+                            list = statuses as! [NSDictionary]
+                        }
+                        tweets(list)
+                    }else if let jsonArray = json as? NSArray {
+//                        tweets(TWTRTweet.tweetsWithJSONArray(jsonArray as [AnyObject]) as! [TWTRTweet])
                     }
                 } else {
                     error(err)
