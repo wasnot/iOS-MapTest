@@ -2,7 +2,7 @@
 //  NotificationController.swift
 //  MapTest WatchKit Extension
 //
-//  Created by AidaAkihiro on 2015/05/08.
+//  Created by AidaAkihiro on 2015/05/13.
 //  Copyright (c) 2015年 Wasnot Apps. All rights reserved.
 //
 

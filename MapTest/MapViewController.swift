@@ -63,7 +63,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         request.requestsAlternateRoutes = true; //複数経路
         request.transportType = MKDirectionsTransportType.Walking //移動手段 Walking:徒歩/Automobile:車
         
-        drawDirection(request)
+//        drawDirection(request)
 //        setMap(37.506804,lon: 139.930531)
     }
 
@@ -101,16 +101,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.mapView.setRegion(myRegion, animated: true)
     }
     
-    func setMapAnnotation(userLocation: CLLocationCoordinate2D){
+    func setMapAnnotation(userLocation: CLLocationCoordinate2D, tweet: TWTRTweet){
         var userLocAnnotation: MKPointAnnotation = MKPointAnnotation()
         userLocAnnotation.coordinate = userLocation
-        userLocAnnotation.title = "現在地"
+        userLocAnnotation.title = tweet.text
         self.mapView.addAnnotation(userLocAnnotation)
         println("setMapAnnotation:\(userLocation.latitude),\(userLocation.longitude)")
     }
     
     @IBAction func pushButton(sender: UIButton) {
         println("pushButton")
+        self.mapView.removeAnnotations(self.mapView.annotations)
 //        locationManager?.startUpdatingLocation()
         TwitterAPI.getNearTimeline({
             twttrs in
@@ -124,7 +125,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                     if let bb = b as? NSArray {
                         var cc = CLLocationCoordinate2DMake(bb[1] as! CLLocationDegrees, bb[0] as! CLLocationDegrees)
                         println("coordinates: \(cc.latitude) \(cc.longitude)")
-                        self.setMapAnnotation(cc)
+                        self.setMapAnnotation(cc, tweet: t)
                     }
                 }
 //                self.tweets.append(tweet)
@@ -136,7 +137,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             },
             lat: Float(mapView.region.center.latitude),
             lon: Float(mapView.region.center.longitude),
-            within: 25)
+            within: Int(mapView.region.span.longitudeDelta * 30))
     }
 
     
@@ -153,7 +154,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     // Regionが変更した時に呼び出されるメソッド.
     func mapView(mapView: MKMapView!, regionDidChangeAnimated animated: Bool) {
-        println("regionDidChangeAnimated")
+        println("regionDidChangeAnimated \(mapView.region.span.latitudeDelta) \(mapView.region.span.longitudeDelta)")
     }
     /*
     // MARK: - Navigation

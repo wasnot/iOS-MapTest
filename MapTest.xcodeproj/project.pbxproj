@@ -20,14 +20,15 @@
 		AB29B9C81AF0528800B76F19 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB29B9C71AF0528800B76F19 /* Images.xcassets */; };
 		AB29B9CB1AF0528800B76F19 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB29B9C91AF0528800B76F19 /* LaunchScreen.xib */; };
 		AB29B9D71AF0528900B76F19 /* MapTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB29B9D61AF0528900B76F19 /* MapTestTests.swift */; };
+		AB5BC4C81B0304F4002B2BA1 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5BC4C71B0304F4002B2BA1 /* InterfaceController.swift */; };
+		AB5BC4CA1B0304F4002B2BA1 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5BC4C91B0304F4002B2BA1 /* NotificationController.swift */; };
+		AB5BC4CC1B0304F4002B2BA1 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5BC4CB1B0304F4002B2BA1 /* GlanceController.swift */; };
+		AB5BC4CE1B0304F4002B2BA1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB5BC4CD1B0304F4002B2BA1 /* Images.xcassets */; };
+		AB5BC4D21B0304F4002B2BA1 /* MapTest WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = AB5BC4D11B0304F4002B2BA1 /* MapTest WatchKit App.app */; };
+		AB5BC4DA1B0304F4002B2BA1 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB5BC4D81B0304F4002B2BA1 /* Interface.storyboard */; };
+		AB5BC4DC1B0304F4002B2BA1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB5BC4DB1B0304F4002B2BA1 /* Images.xcassets */; };
+		AB5BC4DF1B0304F4002B2BA1 /* MapTest WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AB5BC4C21B0304F4002B2BA1 /* MapTest WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AB8CB5761AFCEF6F005086AF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB8CB5751AFCEF6F005086AF /* MapKit.framework */; };
-		AB8CB5811AFCF0BC005086AF /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8CB5801AFCF0BC005086AF /* InterfaceController.swift */; };
-		AB8CB5831AFCF0BC005086AF /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8CB5821AFCF0BC005086AF /* NotificationController.swift */; };
-		AB8CB5851AFCF0BC005086AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB8CB5841AFCF0BC005086AF /* Images.xcassets */; };
-		AB8CB5891AFCF0BD005086AF /* MapTest WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = AB8CB5881AFCF0BC005086AF /* MapTest WatchKit App.app */; };
-		AB8CB5911AFCF0BD005086AF /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8CB58F1AFCF0BD005086AF /* Interface.storyboard */; };
-		AB8CB5931AFCF0BD005086AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB8CB5921AFCF0BD005086AF /* Images.xcassets */; };
-		AB8CB5971AFCF0BD005086AF /* MapTest WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AB8CB57B1AFCF0BC005086AF /* MapTest WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,30 +39,40 @@
 			remoteGlobalIDString = AB29B9BA1AF0528800B76F19;
 			remoteInfo = MapTest;
 		};
-		AB8CB58A1AFCF0BD005086AF /* PBXContainerItemProxy */ = {
+		AB5BC4D31B0304F4002B2BA1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AB29B9B31AF0528800B76F19 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = AB8CB5871AFCF0BC005086AF;
+			remoteGlobalIDString = AB5BC4D01B0304F4002B2BA1;
 			remoteInfo = "MapTest WatchKit App";
 		};
-		AB8CB5941AFCF0BD005086AF /* PBXContainerItemProxy */ = {
+		AB5BC4DD1B0304F4002B2BA1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AB29B9B31AF0528800B76F19 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = AB8CB57A1AFCF0BC005086AF;
+			remoteGlobalIDString = AB5BC4C11B0304F4002B2BA1;
 			remoteInfo = "MapTest WatchKit Extension";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		AB5BC5071B0318BD002B2BA1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AB8CB5961AFCF0BD005086AF /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				AB8CB5971AFCF0BD005086AF /* MapTest WatchKit Extension.appex in Embed App Extensions */,
+				AB5BC4DF1B0304F4002B2BA1 /* MapTest WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,17 +97,18 @@
 		AB29B9D01AF0528900B76F19 /* MapTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB29B9D51AF0528900B76F19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB29B9D61AF0528900B76F19 /* MapTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTestTests.swift; sourceTree = "<group>"; };
+		AB5BC4C21B0304F4002B2BA1 /* MapTest WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MapTest WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB5BC4C51B0304F4002B2BA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB5BC4C61B0304F4002B2BA1 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		AB5BC4C71B0304F4002B2BA1 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		AB5BC4C91B0304F4002B2BA1 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		AB5BC4CB1B0304F4002B2BA1 /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		AB5BC4CD1B0304F4002B2BA1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AB5BC4D11B0304F4002B2BA1 /* MapTest WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MapTest WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB5BC4D71B0304F4002B2BA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB5BC4D91B0304F4002B2BA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		AB5BC4DB1B0304F4002B2BA1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AB8CB5751AFCEF6F005086AF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		AB8CB57B1AFCF0BC005086AF /* MapTest WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MapTest WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB8CB57E1AFCF0BC005086AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AB8CB57F1AFCF0BC005086AF /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		AB8CB5801AFCF0BC005086AF /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		AB8CB5821AFCF0BC005086AF /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		AB8CB5841AFCF0BC005086AF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		AB8CB5881AFCF0BC005086AF /* MapTest WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MapTest WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB8CB58E1AFCF0BD005086AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AB8CB5901AFCF0BD005086AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		AB8CB5921AFCF0BD005086AF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +129,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AB8CB5781AFCF0BC005086AF /* Frameworks */ = {
+		AB5BC4BF1B0304F4002B2BA1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -133,8 +145,8 @@
 				AB8CB5751AFCEF6F005086AF /* MapKit.framework */,
 				AB29B9BD1AF0528800B76F19 /* MapTest */,
 				AB29B9D31AF0528900B76F19 /* MapTestTests */,
-				AB8CB57C1AFCF0BC005086AF /* MapTest WatchKit Extension */,
-				AB8CB58C1AFCF0BD005086AF /* MapTest WatchKit App */,
+				AB5BC4C31B0304F4002B2BA1 /* MapTest WatchKit Extension */,
+				AB5BC4D51B0304F4002B2BA1 /* MapTest WatchKit App */,
 				AB29B9BC1AF0528800B76F19 /* Products */,
 				AB0837311AF4D07300E01118 /* Fabric.framework */,
 				AB0837321AF4D07300E01118 /* TwitterKit.framework */,
@@ -147,8 +159,8 @@
 			children = (
 				AB29B9BB1AF0528800B76F19 /* MapTest.app */,
 				AB29B9D01AF0528900B76F19 /* MapTestTests.xctest */,
-				AB8CB57B1AFCF0BC005086AF /* MapTest WatchKit Extension.appex */,
-				AB8CB5881AFCF0BC005086AF /* MapTest WatchKit App.app */,
+				AB5BC4C21B0304F4002B2BA1 /* MapTest WatchKit Extension.appex */,
+				AB5BC4D11B0304F4002B2BA1 /* MapTest WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,40 +207,41 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		AB8CB57C1AFCF0BC005086AF /* MapTest WatchKit Extension */ = {
+		AB5BC4C31B0304F4002B2BA1 /* MapTest WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				AB8CB5801AFCF0BC005086AF /* InterfaceController.swift */,
-				AB8CB5821AFCF0BC005086AF /* NotificationController.swift */,
-				AB8CB5841AFCF0BC005086AF /* Images.xcassets */,
-				AB8CB57D1AFCF0BC005086AF /* Supporting Files */,
+				AB5BC4C71B0304F4002B2BA1 /* InterfaceController.swift */,
+				AB5BC4C91B0304F4002B2BA1 /* NotificationController.swift */,
+				AB5BC4CB1B0304F4002B2BA1 /* GlanceController.swift */,
+				AB5BC4CD1B0304F4002B2BA1 /* Images.xcassets */,
+				AB5BC4C41B0304F4002B2BA1 /* Supporting Files */,
 			);
 			path = "MapTest WatchKit Extension";
 			sourceTree = "<group>";
 		};
-		AB8CB57D1AFCF0BC005086AF /* Supporting Files */ = {
+		AB5BC4C41B0304F4002B2BA1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AB8CB57E1AFCF0BC005086AF /* Info.plist */,
-				AB8CB57F1AFCF0BC005086AF /* PushNotificationPayload.apns */,
+				AB5BC4C51B0304F4002B2BA1 /* Info.plist */,
+				AB5BC4C61B0304F4002B2BA1 /* PushNotificationPayload.apns */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		AB8CB58C1AFCF0BD005086AF /* MapTest WatchKit App */ = {
+		AB5BC4D51B0304F4002B2BA1 /* MapTest WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
-				AB8CB58F1AFCF0BD005086AF /* Interface.storyboard */,
-				AB8CB5921AFCF0BD005086AF /* Images.xcassets */,
-				AB8CB58D1AFCF0BD005086AF /* Supporting Files */,
+				AB5BC4D81B0304F4002B2BA1 /* Interface.storyboard */,
+				AB5BC4DB1B0304F4002B2BA1 /* Images.xcassets */,
+				AB5BC4D61B0304F4002B2BA1 /* Supporting Files */,
 			);
 			path = "MapTest WatchKit App";
 			sourceTree = "<group>";
 		};
-		AB8CB58D1AFCF0BD005086AF /* Supporting Files */ = {
+		AB5BC4D61B0304F4002B2BA1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AB8CB58E1AFCF0BD005086AF /* Info.plist */,
+				AB5BC4D71B0304F4002B2BA1 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -245,11 +258,12 @@
 				AB29B9B91AF0528800B76F19 /* Resources */,
 				AB0837301AF4D01F00E01118 /* ShellScript */,
 				AB8CB5961AFCF0BD005086AF /* Embed App Extensions */,
+				AB5BC5071B0318BD002B2BA1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AB8CB5951AFCF0BD005086AF /* PBXTargetDependency */,
+				AB5BC4DE1B0304F4002B2BA1 /* PBXTargetDependency */,
 			);
 			name = MapTest;
 			productName = MapTest;
@@ -274,29 +288,29 @@
 			productReference = AB29B9D01AF0528900B76F19 /* MapTestTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		AB8CB57A1AFCF0BC005086AF /* MapTest WatchKit Extension */ = {
+		AB5BC4C11B0304F4002B2BA1 /* MapTest WatchKit Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AB8CB59B1AFCF0BD005086AF /* Build configuration list for PBXNativeTarget "MapTest WatchKit Extension" */;
+			buildConfigurationList = AB5BC4E31B0304F4002B2BA1 /* Build configuration list for PBXNativeTarget "MapTest WatchKit Extension" */;
 			buildPhases = (
-				AB8CB5771AFCF0BC005086AF /* Sources */,
-				AB8CB5781AFCF0BC005086AF /* Frameworks */,
-				AB8CB5791AFCF0BC005086AF /* Resources */,
+				AB5BC4BE1B0304F4002B2BA1 /* Sources */,
+				AB5BC4BF1B0304F4002B2BA1 /* Frameworks */,
+				AB5BC4C01B0304F4002B2BA1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AB8CB58B1AFCF0BD005086AF /* PBXTargetDependency */,
+				AB5BC4D41B0304F4002B2BA1 /* PBXTargetDependency */,
 			);
 			name = "MapTest WatchKit Extension";
 			productName = "MapTest WatchKit Extension";
-			productReference = AB8CB57B1AFCF0BC005086AF /* MapTest WatchKit Extension.appex */;
+			productReference = AB5BC4C21B0304F4002B2BA1 /* MapTest WatchKit Extension.appex */;
 			productType = "com.apple.product-type.watchkit-extension";
 		};
-		AB8CB5871AFCF0BC005086AF /* MapTest WatchKit App */ = {
+		AB5BC4D01B0304F4002B2BA1 /* MapTest WatchKit App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AB8CB5981AFCF0BD005086AF /* Build configuration list for PBXNativeTarget "MapTest WatchKit App" */;
+			buildConfigurationList = AB5BC4E01B0304F4002B2BA1 /* Build configuration list for PBXNativeTarget "MapTest WatchKit App" */;
 			buildPhases = (
-				AB8CB5861AFCF0BC005086AF /* Resources */,
+				AB5BC4CF1B0304F4002B2BA1 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -304,7 +318,7 @@
 			);
 			name = "MapTest WatchKit App";
 			productName = "MapTest WatchKit App";
-			productReference = AB8CB5881AFCF0BC005086AF /* MapTest WatchKit App.app */;
+			productReference = AB5BC4D11B0304F4002B2BA1 /* MapTest WatchKit App.app */;
 			productType = "com.apple.product-type.application.watchapp";
 		};
 /* End PBXNativeTarget section */
@@ -328,11 +342,12 @@
 						CreatedOnToolsVersion = 6.3.1;
 						TestTargetID = AB29B9BA1AF0528800B76F19;
 					};
-					AB8CB57A1AFCF0BC005086AF = {
+					AB5BC4C11B0304F4002B2BA1 = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
-					AB8CB5871AFCF0BC005086AF = {
+					AB5BC4D01B0304F4002B2BA1 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = GL3NKE9BN8;
 					};
 				};
 			};
@@ -351,8 +366,8 @@
 			targets = (
 				AB29B9BA1AF0528800B76F19 /* MapTest */,
 				AB29B9CF1AF0528900B76F19 /* MapTestTests */,
-				AB8CB57A1AFCF0BC005086AF /* MapTest WatchKit Extension */,
-				AB8CB5871AFCF0BC005086AF /* MapTest WatchKit App */,
+				AB5BC4C11B0304F4002B2BA1 /* MapTest WatchKit Extension */,
+				AB5BC4D01B0304F4002B2BA1 /* MapTest WatchKit App */,
 			);
 		};
 /* End PBXProject section */
@@ -376,21 +391,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AB8CB5791AFCF0BC005086AF /* Resources */ = {
+		AB5BC4C01B0304F4002B2BA1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB8CB5851AFCF0BC005086AF /* Images.xcassets in Resources */,
-				AB8CB5891AFCF0BD005086AF /* MapTest WatchKit App.app in Resources */,
+				AB5BC4CE1B0304F4002B2BA1 /* Images.xcassets in Resources */,
+				AB5BC4D21B0304F4002B2BA1 /* MapTest WatchKit App.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AB8CB5861AFCF0BC005086AF /* Resources */ = {
+		AB5BC4CF1B0304F4002B2BA1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB8CB5911AFCF0BD005086AF /* Interface.storyboard in Resources */,
-				AB8CB5931AFCF0BD005086AF /* Images.xcassets in Resources */,
+				AB5BC4DA1B0304F4002B2BA1 /* Interface.storyboard in Resources */,
+				AB5BC4DC1B0304F4002B2BA1 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,12 +449,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AB8CB5771AFCF0BC005086AF /* Sources */ = {
+		AB5BC4BE1B0304F4002B2BA1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB8CB5831AFCF0BC005086AF /* NotificationController.swift in Sources */,
-				AB8CB5811AFCF0BC005086AF /* InterfaceController.swift in Sources */,
+				AB5BC4CA1B0304F4002B2BA1 /* NotificationController.swift in Sources */,
+				AB5BC4C81B0304F4002B2BA1 /* InterfaceController.swift in Sources */,
+				AB5BC4CC1B0304F4002B2BA1 /* GlanceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,15 +467,15 @@
 			target = AB29B9BA1AF0528800B76F19 /* MapTest */;
 			targetProxy = AB29B9D11AF0528900B76F19 /* PBXContainerItemProxy */;
 		};
-		AB8CB58B1AFCF0BD005086AF /* PBXTargetDependency */ = {
+		AB5BC4D41B0304F4002B2BA1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AB8CB5871AFCF0BC005086AF /* MapTest WatchKit App */;
-			targetProxy = AB8CB58A1AFCF0BD005086AF /* PBXContainerItemProxy */;
+			target = AB5BC4D01B0304F4002B2BA1 /* MapTest WatchKit App */;
+			targetProxy = AB5BC4D31B0304F4002B2BA1 /* PBXContainerItemProxy */;
 		};
-		AB8CB5951AFCF0BD005086AF /* PBXTargetDependency */ = {
+		AB5BC4DE1B0304F4002B2BA1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AB8CB57A1AFCF0BC005086AF /* MapTest WatchKit Extension */;
-			targetProxy = AB8CB5941AFCF0BD005086AF /* PBXContainerItemProxy */;
+			target = AB5BC4C11B0304F4002B2BA1 /* MapTest WatchKit Extension */;
+			targetProxy = AB5BC4DD1B0304F4002B2BA1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -480,10 +496,10 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
-		AB8CB58F1AFCF0BD005086AF /* Interface.storyboard */ = {
+		AB5BC4D81B0304F4002B2BA1 /* Interface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AB8CB5901AFCF0BD005086AF /* Base */,
+				AB5BC4D91B0304F4002B2BA1 /* Base */,
 			);
 			name = Interface.storyboard;
 			sourceTree = "<group>";
@@ -636,10 +652,12 @@
 			};
 			name = Release;
 		};
-		AB8CB5991AFCF0BD005086AF /* Debug */ = {
+		AB5BC4E11B0304F4002B2BA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -648,27 +666,31 @@
 				INFOPLIST_FILE = "MapTest WatchKit App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
 				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
 			};
 			name = Debug;
 		};
-		AB8CB59A1AFCF0BD005086AF /* Release */ = {
+		AB5BC4E21B0304F4002B2BA1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				IBSC_MODULE = MapTest_WatchKit_Extension;
 				INFOPLIST_FILE = "MapTest WatchKit App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
 				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
 			};
 			name = Release;
 		};
-		AB8CB59C1AFCF0BD005086AF /* Debug */ = {
+		AB5BC4E41B0304F4002B2BA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -682,7 +704,7 @@
 			};
 			name = Debug;
 		};
-		AB8CB59D1AFCF0BD005086AF /* Release */ = {
+		AB5BC4E51B0304F4002B2BA1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = "MapTest WatchKit Extension/Info.plist";
@@ -722,20 +744,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AB8CB5981AFCF0BD005086AF /* Build configuration list for PBXNativeTarget "MapTest WatchKit App" */ = {
+		AB5BC4E01B0304F4002B2BA1 /* Build configuration list for PBXNativeTarget "MapTest WatchKit App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AB8CB5991AFCF0BD005086AF /* Debug */,
-				AB8CB59A1AFCF0BD005086AF /* Release */,
+				AB5BC4E11B0304F4002B2BA1 /* Debug */,
+				AB5BC4E21B0304F4002B2BA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AB8CB59B1AFCF0BD005086AF /* Build configuration list for PBXNativeTarget "MapTest WatchKit Extension" */ = {
+		AB5BC4E31B0304F4002B2BA1 /* Build configuration list for PBXNativeTarget "MapTest WatchKit Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AB8CB59C1AFCF0BD005086AF /* Debug */,
-				AB8CB59D1AFCF0BD005086AF /* Release */,
+				AB5BC4E41B0304F4002B2BA1 /* Debug */,
+				AB5BC4E51B0304F4002B2BA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,5 +1,5 @@
 //
-//  InterfaceController.swift
+//  GlanceController.swift
 //  MapTest WatchKit Extension
 //
 //  Created by AidaAkihiro on 2015/05/13.
@@ -10,7 +10,7 @@ import WatchKit
 import Foundation
 
 
-class InterfaceController: WKInterfaceController, CLLocationManagerDelegate {
+class GlanceController: WKInterfaceController, CLLocationManagerDelegate {
 
     @IBOutlet weak var mapView: WKInterfaceMap!
     var locationManager : CLLocationManager?
@@ -40,14 +40,37 @@ class InterfaceController: WKInterfaceController, CLLocationManagerDelegate {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        
+//        TwitterAPI.getNearTimeline({
+//            twttrs in
+//            println("count \(twttrs.count)")
+//            for tweet :NSDictionary in twttrs {
+//                var t:TWTRTweet = TWTRTweet(JSONDictionary: tweet as [NSObject : AnyObject])
+//                var coordinates = tweet.valueForKey("coordinates")
+//                //                println("count \(t.retweetCount) \(coordinates)")
+//                if let a = coordinates as? NSDictionary {
+//                    var b = a.valueForKey("coordinates")
+//                    if let bb = b as? NSArray {
+//                        var cc = CLLocationCoordinate2DMake(bb[1] as! CLLocationDegrees, bb[0] as! CLLocationDegrees)
+//                        println("coordinates: \(cc.latitude) \(cc.longitude)")
+//                        self.setMapAnnotation(cc, tweet: t)
+//                    }
+//                }
+//                //                self.tweets.append(tweet)
+//            }
+//            },
+//            error: {
+//                error in
+//                println("error:\(error.localizedFailureReason)")
+//            },
+//            lat: Float(mapView.region.center.latitude),
+//            lon: Float(mapView.region.center.longitude),
+//            within: Int(mapView.region.span.longitudeDelta * 30))
     }
 
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
-    }
-
-    @IBAction func pushButton() {
     }
     
     func setMap(lat: CLLocationDegrees, lon: CLLocationDegrees){
